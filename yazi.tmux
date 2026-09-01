@@ -31,8 +31,10 @@ mode="${mode:-popup}"
 tmux_version="$(tmux -V | sed -E 's/.*([0-9]+)\.([0-9]+).*/\1\2/')"
 [ "${tmux_version:-0}" -lt 32 ] && mode="window"
 
+# Bind the command directly (no run-shell wrapper): the keypress runs it in the
+# client's context, which display-popup requires.
 if [ "$mode" = "window" ]; then
-	tmux bind-key "$key" run-shell 'tmux new-window "yazi; exit"'
+	tmux bind-key "$key" new-window "yazi; exit"
 else
-	tmux bind-key "$key" run-shell "tmux display-popup -w $width -h $height -x C -y C -E 'yazi; exit'"
+	tmux bind-key "$key" display-popup -w "$width" -h "$height" -x C -y C -E "yazi; exit"
 fi
