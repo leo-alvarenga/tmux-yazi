@@ -17,11 +17,11 @@ key="${key:-y}"
 
 
 width="$(opt @tmux-yazi-width)"
-width="${width:-60}"
+width="${width:-70}"
 
 
 height="$(opt @tmux-yazi-height)"
-height="${height:-60}"
+height="${height:-30}"
 
 
 mode="$(opt @tmux-yazi-mode)"
