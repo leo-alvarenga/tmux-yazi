@@ -17,7 +17,7 @@ key="${key:-y}"
 
 
 width="$(opt @tmux-yazi-width)"
-width="${width:-70}"
+width="${width:-120}"
 
 
 height="$(opt @tmux-yazi-height)"
@@ -36,5 +36,5 @@ tmux_version="$(tmux -V | sed -E 's/.*([0-9]+)\.([0-9]+).*/\1\2/')"
 if [ "$mode" = "window" ]; then
 	tmux bind-key "$key" new-window "yazi; exit"
 else
-	tmux bind-key "$key" display-popup -w "$width" -h "$height" -x C -y C -E "yazi; exit"
+	tmux bind-key "$key" display-popup -w "$width" -h "$height" -x C -y C -E "EDITOR=/bin/true VISUAL=/bin/true yazi; exit"
 fi
