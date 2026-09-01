@@ -10,7 +10,7 @@ If shell or yazi is missing, the plugin does nothing (no binding is created).
 With [TPM](https://github.com/tmux-plugins/tpm) (TPM executes every `*.tmux` file in the plugin dir):
 
 ```tmux
-set -g @plugin 'you/tmux-yazi'
+set -g @plugin 'leo-alvarenga/tmux-yazi'
 ```
 
 or without TPM, add to `tmux.conf`:
